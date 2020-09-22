@@ -13,7 +13,7 @@
 
 <body class="container-fluid">
     <?php echo menu(); ?>
-    <h1>Layout</h1>
+    <h1>Pagina 2</h1>
     <!-- JavaScript -->
     <script src="jquery/jquery-3.5.1.slim.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
