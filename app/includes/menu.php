@@ -9,22 +9,21 @@ function menu()
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="formulario.php">Formulario</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#">1</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="pagina2.php">Pagina 2</a>
+                    <a class="nav-link" href="#">2</a>
                 </li>
-<!--                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navEjemplos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown link
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-menu" aria-labelledby="navEjemplos">
+                        <a class="dropdown-item" href="formulario.php">Formulario</a>
+                        <a class="dropdown-item" href="bdd.php">Ejemplo ABM</a>
                     </div>
-                </li> -->
+                </li>
             </ul>
         </div>
     </nav>
