@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,28 +81,24 @@
                             <th scope="col">Usuario</th>
                             <th scope="col">Clave</th>
                             <th scope="col">Rol</th>
-                            <th scope="col">Acciones</th>
-                        </tr> 
-                    </thead> 
+                            <th scope="col" class="col-2">Acciones</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                            <?php
-                            $row = 1;
-                            while ($columna = mysqli_fetch_array($resultUsuarios)) {
-                                echo "<tr>";
-                                echo "<th scope='row' class='text-center'>{$row}</th>";
-                                echo "<td>{$columna['usuario']}</td>";
-                                echo "<td>{$columna['clave']}</td>";
-                                echo "<td>{$columna['rol']}</td>";
-                                echo "<td class='text-center'>
-                                        <a href='#' target='_blank' class='btn btn-success'><i class='fas fa-user-edit'></i></a> | 
-                                        <a href='#' target='_blank' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> | 
-                                        <a href='#' target='_blank' class='btn btn-info'><i class='fas fa-eye'></i></a>
-                                    </td>";
-                                echo "</tr>";
-                                $row++;
-                            }
-                            ?>
-                            </tbody>
+                        <?php
+                        $row = 1;
+                        while ($columna = mysqli_fetch_array($resultUsuarios)) {
+                            echo "<tr>";
+                            echo "<th scope='row' class='text-center'>{$row}</th>";
+                            echo "<td>{$columna['usuario']}</td>";
+                            echo "<td>{$columna['clave']}</td>";
+                            echo "<td>{$columna['rol']}</td>";
+                            echo "<td class='text-center'><a href='#' target='_blank' class='btn btn-success'><i class='fas fa-user-edit'></i></a> | <a href='#' target='_blank' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> | <a href='#' target='_blank' class='btn btn-info'><i class='fas fa-eye'></i></a></td>";
+                            echo "</tr>";
+                            $row++;
+                        }
+                        ?>
+                    </tbody>
                 </table>
             </div>
         </div>
