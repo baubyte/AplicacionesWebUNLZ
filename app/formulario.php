@@ -7,6 +7,7 @@
     <title>Formulario</title>
     <!-- Archivos CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
     <!-- Archivos para Incluir -->
     <?php include('includes/menu.php'); ?>
 </head>

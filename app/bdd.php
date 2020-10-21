@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABM</title>
     <!-- Archivos CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
     <!-- Archivos para Incluir -->
     <?php include('includes/menu.php'); ?>
+    <?php include('includes/conexion.php'); ?>
 </head>
 
 <body class="container-fluid">
@@ -23,16 +24,6 @@
     /**Filtro por Roles */
     $rolAdmin = 'administrador';
     $rolAnalista = 'analista';
-    /**Datos de Conexión a la BDD */
-    $usuario = 'root';
-    $clave = '';
-    $servidor = 'localhost';
-    $baseDeDatos = 'tp1';
-    /**Creamos la Conexión a la BDD */
-    $conexion = mysqli_connect($servidor, $usuario, $clave) or die('No se ha Podido Conectar al Servidor');
-    /**Nos Conectamos a la BDD */
-    $db = mysqli_select_db($conexion, $baseDeDatos) or die('No se ha Podido Conectar con la Base de Datos');
-    mysqli_set_charset($conexion,'utf8');
     /**Creamos las Consulta SQL */
     $queryCantUsuario = "SELECT COUNT(DISTINCT usuario) AS cant_usuarios FROM usuario";
     $queryCantAdmin = "SELECT COUNT(DISTINCT usuario) AS cant_admin FROM usuario WHERE rol ='$rolAdmin'";
@@ -56,30 +47,55 @@
     /**Cerramos la Conexión */
     mysqli_close($conexion);
     ?>
+    <div class="row text-center">
+        <div class="col-3">
+            <button type="button" class="btn btn-success">
+                Cantidad de Usuarios <span class="badge badge-light"><?php echo $totalUsuarios; ?></span>
+            </button>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-danger">
+                Administradores <span class="badge badge-light"><?php echo $usuariosAdmin; ?></span>
+            </button>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-warning">
+                Analistas <span class="badge badge-light"><?php echo $usuariosAnalista; ?></span>
+            </button>
+        </div>
+        <div class="col-3">
+            <button type="button" class="btn btn-info">
+                Nuevo Usuario
+            </button>
+        </div>
+    </div>
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">.
             <div class="table-responsive">
-                <table class="table table-bordered table-sm table-hover table-dark">
+                <table class="table table-bordered table-sm table-hover table-dark table-striped">
                     <thead>
-                        <tr>
-                            <td>#</td>
-                            <td>Usuario</td>
-                            <td>Clave</td>
-                            <td>Rol</td>
-                            <td>Acciones</td </tr> </thead> <tbody>
+                        <tr class="text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Clave</th>
+                            <th scope="col">Rol</th>
+                            <th scope="col">Acciones</th>
+                        </tr> 
+                    </thead> 
+                    <tbody>
                             <?php
                             $row = 1;
                             while ($columna = mysqli_fetch_array($resultUsuarios)) {
                                 echo "<tr>";
-                                echo "<td>{$row}</td>";
+                                echo "<th scope='row' class='text-center'>{$row}</th>";
                                 echo "<td>{$columna['usuario']}</td>";
                                 echo "<td>{$columna['clave']}</td>";
                                 echo "<td>{$columna['rol']}</td>";
-                                echo "<td>
-                                        <a href='#' target='_blank'>Editar</a>
-                                        <a href='#' target='_blank'>Eliminar</a>
-                                        <a href='#' target='_blank'>Detalles</a>
+                                echo "<td class='text-center'>
+                                        <a href='#' target='_blank' class='btn btn-success'><i class='fas fa-user-edit'></i></a> | 
+                                        <a href='#' target='_blank' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> | 
+                                        <a href='#' target='_blank' class='btn btn-info'><i class='fas fa-eye'></i></a>
                                     </td>";
                                 echo "</tr>";
                                 $row++;

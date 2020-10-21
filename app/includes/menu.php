@@ -17,7 +17,7 @@ function menu()
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navEjemplos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown link
+                       ABM
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navEjemplos">
                         <a class="dropdown-item" href="formulario.php">Formulario</a>
