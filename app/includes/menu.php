@@ -20,8 +20,8 @@ function menu()
                        ABM
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navEjemplos">
-                        <a class="dropdown-item" href="formulario.php">Formulario</a>
-                        <a class="dropdown-item" href="bdd.php">Ejemplo ABM</a>
+                        <a class="dropdown-item" href="formAltaUsuario.php">Alta Usuarios</a>
+                        <a class="dropdown-item" href="bdd.php">Listado de Usuarios</a>
                     </div>
                 </li>
             </ul>

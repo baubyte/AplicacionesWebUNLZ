@@ -17,7 +17,7 @@
     <?php echo menu(); ?>
     <div class="row">
         <div class="col-12 text-center">
-            <h1>Ejemplo de ABM</h1>
+            <h1>ABM</h1>
             <h3><small class="text-muted">ABM Usando Tabla y Formulario con MySQL</small></h3>
         </div>
     </div>
@@ -28,7 +28,7 @@
     /**Creamos las Consulta SQL */
     $queryCantUsuario = "SELECT COUNT(DISTINCT usuario) AS cant_usuarios FROM usuario";
     $queryCantAdmin = "SELECT COUNT(DISTINCT usuario) AS cant_admin FROM usuario WHERE rol ='$rolAdmin'";
-    $queryCantAnalista = "SELECT COUNT(DISTINCT usuario) AS cant_analista FROM usuario WHERE rol ='$rolAnalista' AND LENGTH(clave)=5";
+    $queryCantAnalista = "SELECT COUNT(DISTINCT usuario) AS cant_analista FROM usuario WHERE rol ='$rolAnalista'";
     $queryUsuarios = "SELECT DISTINCT * FROM usuario";
     /**Ejecutamos la Consultas */
     $resultCantUsuarios = mysqli_query($conexion, $queryCantUsuario) or die('No se ha Podido Ejecutar la Consulta Total de Usuarios');
@@ -50,24 +50,23 @@
     ?>
     <div class="row text-center">
         <div class="col-3">
-            <button type="button" class="btn btn-success">
+            <button type="button" class="btn btn-success btn-block">
                 Cantidad de Usuarios <span class="badge badge-light"><?php echo $totalUsuarios; ?></span>
             </button>
         </div>
         <div class="col-3">
-            <button type="button" class="btn btn-danger">
+            <button type="button" class="btn btn-danger btn-block">
                 Administradores <span class="badge badge-light"><?php echo $usuariosAdmin; ?></span>
             </button>
         </div>
         <div class="col-3">
-            <button type="button" class="btn btn-warning">
+            <button type="button" class="btn btn-warning btn-block">
                 Analistas <span class="badge badge-light"><?php echo $usuariosAnalista; ?></span>
             </button>
         </div>
         <div class="col-3">
-            <button type="button" class="btn btn-info">
-                Nuevo Usuario
-            </button>
+            <a class="btn btn-info btn-block" href="alta_usuario.php">
+                Nuevo Usuario</a>
         </div>
     </div>
     <div class="row">
@@ -80,7 +79,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Usuario</th>
                             <th scope="col">Clave</th>
-                            <th scope="col">Rol</th>
+                            <th scope="col" class="col-3">Rol</th>
                             <th scope="col" class="col-2">Acciones</th>
                         </tr>
                     </thead>
@@ -93,7 +92,7 @@
                             echo "<td>{$columna['usuario']}</td>";
                             echo "<td>{$columna['clave']}</td>";
                             echo "<td>{$columna['rol']}</td>";
-                            echo "<td class='text-center'><a href='#' target='_blank' class='btn btn-success'><i class='fas fa-user-edit'></i></a> | <a href='#' target='_blank' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a> | <a href='#' target='_blank' class='btn btn-info'><i class='fas fa-eye'></i></a></td>";
+                            echo "<td class='text-center'><a href='modifica_usuario.php?usuario={$columna['usuario']}&clave={$columna['clave']}&rol={$columna['rol']}' class='btn btn-success'><i class='fas fa-user-edit'></i></a> | <a href='baja_usuario.php?usuario={$columna['usuario']}&clave={$columna['clave']}&rol={$columna['rol']}' class='btn btn-danger'><i class='fas fa-trash-alt'></i></a></td>";
                             echo "</tr>";
                             $row++;
                         }

@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 echo session_id().'<br>';
 if (isset($_SESSION['user'],$_SESSION['pass'],$_SESSION['dni'])) {
     echo 'Se creo la Sesión'.'<br>';
@@ -10,5 +10,5 @@ if (isset($_SESSION['user'],$_SESSION['pass'],$_SESSION['dni'])) {
 echo $_SESSION['contador'].'<br>';
 echo $_SESSION['paises'][0].'<br>';
 var_dump($_SESSION['paises']);
-echo '<br>'.'<a href="limpiarSesion.php">Limpiar Sesiones</a>';
+echo '<br>'.'<a href="limpiarSesion.php">Limpiar Sesiones</a>';*/
 ?>
